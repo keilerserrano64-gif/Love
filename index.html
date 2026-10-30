@@ -43,12 +43,11 @@
     animation:aparecer 1.2s ease both;
   }
   .tarjeta h1{font-family:'Playfair Display',serif;font-size:2.1rem;line-height:1.12}
-  .tarjeta svg{width:130px;margin:18px auto 4px;display:block;overflow:visible}
+  .tarjeta svg{width:130px;margin:18px auto 24px;display:block;overflow:visible}
   .tarjeta .corazon-svg{fill:var(--main);animation:flotar 2.4s ease-in-out infinite;transform-origin:60px 40px}
   .tarjeta .brillo{fill:#fff;animation:titilar 1.6s ease-in-out infinite}
   .tarjeta .brillo:nth-of-type(2){animation-delay:.5s}
   .tarjeta .brillo:nth-of-type(3){animation-delay:1s}
-  .fecha{font-size:.62rem;letter-spacing:3px;opacity:.6;margin:12px 0 20px;text-transform:uppercase}
 
   .btn{
     border:none;cursor:pointer;background:var(--main);color:#fff;
@@ -148,7 +147,7 @@
 <!-- Tarjeta inicial -->
 <section id="intro">
   <div class="tarjeta">
-    <h1>Feliz Día<br>de la Novia</h1>
+    <h1>Para Ti</h1>
     <svg viewBox="0 0 120 100" aria-hidden="true">
       <path class="corazon-svg" d="M60 30 C60 18 42 16 42 30 C42 40 60 48 60 56 C60 48 78 40 78 30 C78 16 60 18 60 30Z"/>
       <circle class="brillo" cx="30" cy="22" r="2"/>
@@ -158,7 +157,6 @@
       <path d="M22 51 L60 76 L98 51" fill="none" stroke="#ead7df" stroke-width="2.2"/>
       <path d="M24 92 L50 71 M96 92 L70 71" stroke="#f1e4e9" stroke-width="2"/>
     </svg>
-    <p class="fecha" id="fecha"></p>
     <button class="btn" id="btnAbrir">Para el amor de mi vida ♥</button>
   </div>
 </section>
@@ -187,7 +185,6 @@
 <script>
 /* =========== ✏️ PERSONALIZA AQUÍ =========== */
 const CONFIG = {
-  fecha: "",          // ej: "1 de agosto". Vacío = fecha de hoy
   musica: "",         // ej: "cancion.mp3" (pon el mp3 en la misma carpeta)
   // nombres de las constelaciones: corazón, estrella, luna e infinito
   constelaciones: ["Tú y yo", "Mi estrella", "Nuestras noches", "Para siempre"],
@@ -437,7 +434,6 @@ const ordenBurbujas=[...burbujas];
 /* ---------- Estado ---------- */
 let t0=null, mostrado=false, musica=null, ultimoMs=0;
 const $=id=>document.getElementById(id);
-$('fecha').textContent = CONFIG.fecha || new Date().toLocaleDateString('es-CO',{day:'numeric',month:'long'});
 
 /* ---------- Dibujo ---------- */
 function pintarCielo(T,now){
